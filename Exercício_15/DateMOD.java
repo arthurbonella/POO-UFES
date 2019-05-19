@@ -3,10 +3,9 @@ package Exercício_15;
 import java.util.Date;
 
 public class DateMOD extends Date {
-
+	
 	/**
-	 * Modificação da Classe Date de java.util
-	 * 
+	 * Modificação Para Exercício 15 do Prof Henrique Cristovão
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -28,7 +27,7 @@ public class DateMOD extends Date {
 		if(_mes.compareToIgnoreCase( "novembro" ) == 0) mes = 10;
 		if(_mes.compareToIgnoreCase( "dezembro" ) == 0) mes = 11;
 
-		this.setMonth(mes);
+		super.setMonth(mes);
 			
 	}
 	
@@ -39,28 +38,29 @@ public class DateMOD extends Date {
 		return super.getMonth()+1;
 	}
 	
-	
-	/*
-	iii)  Acrescente uma funcionalidade para retornar a quantidade de dias entre duas datas. Repita o método em vários sobrecarregamentos para oferecer ao usuário diferentes formas de utilização (qtde de argumentos e tipos variados). 
-	Lembre-se de usar o modificador static quando achar conveniente.
-	Dica: use o método getTime para retornar o tempo em milisegundos de uma data. Em seguida subtraia da outra data também transformada em milisegundos. Basta, agora, dividir o resultado por 1000, 60, e 24 para converter milisegundos em dias. 
-
-	iv) Usando a dica do item anterior faça um método para permitir o incremento de uma quantidade de dias numa determinada data.
-	Dica extra: existe um construtor da classe Date que recebe uma quantidade de milisegundos como argumento.
-*/
+	public int retornaDiferençaDias(Date obj1,Date obj2) {
+		
+		long t1 = obj1.getTime();
+		long t2 = obj2.getTime();
+		
+		if(t1>t2) {
+			return (int) ((t1-t2)*(1/(24*60*60*1000)));
+		}
+		if(t1<t2) {
+			return (int) ((t2-t1)*(1/(24*60*60*1000)));
+		}
+		
+		else {
+			return 0;
+		}	
+		
+	}
+	public Date incrementa(Date obj,int dias) {
+		
+		long tempoDias = dias*24*60*60*1000;
+		
+		return new Date(tempoDias + obj.getTime());
+		
+	}
 	
 }
-/*
-15)  A classe Date fornecida pela API da Java representa uma data do calendário. Ela possui alguns inconvenientes, como o número do mês representado de 0 a 11 entre outros.  Com intuito de melhorá-la, crie a classe Data que herda da classe Date (pertencente ao pacote java.util do Java) com as seguintes alterações/extensões: 
-(Dica: consulte a classe Date na API do Java - https://docs.oracle.com/javase/8/docs/api/).
-
-iii)  Acrescente uma funcionalidade para retornar a quantidade de dias entre duas datas. Repita o método em vários sobrecarregamentos para oferecer ao usuário diferentes formas de utilização (qtde de argumentos e tipos variados). 
-Lembre-se de usar o modificador static quando achar conveniente.
-Dica: use o método getTime para retornar o tempo em milisegundos de uma data. Em seguida subtraia da outra data também transformada em milisegundos. Basta, agora, dividir o resultado por 1000, 60, e 24 para converter milisegundos em dias. 
-
-iv) Usando a dica do item anterior faça um método para permitir o incremento de uma quantidade de dias numa determinada data.
-Dica extra: existe um construtor da classe Date que recebe uma quantidade de milisegundos como argumento.
-
-Obs.: alguns métodos aparecerão com formatação tachado no Eclipse pois são considerados obsoletos. Isto é decorrente da nova classe Calendar que substitui a Date.
-public Date(long date)
- */
