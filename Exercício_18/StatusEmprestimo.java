@@ -1,0 +1,5 @@
+package Exercício_18;
+
+public enum StatusEmprestimo {
+	EMPRESTADO, DEVOLVIDO, EMATRASO, EMMANUTENCAO,EMFALTA;
+}//MUDARSTATUSEMPRESTIMO

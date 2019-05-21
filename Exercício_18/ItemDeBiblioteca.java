@@ -3,7 +3,7 @@ package Exercício_18;
 
 public interface ItemDeBiblioteca {
 	
-	public boolean isEmprestado();
+	public StatusEmprestimo isEmprestado();
 	public void empresta();
 	public void devolve();
 	public String localiza();
