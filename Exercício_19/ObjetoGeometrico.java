@@ -6,8 +6,9 @@ interface ObjetoGeometrico {
    	 * do objeto geométrico.
    	 * @return uma instância da classe Ponto2D representando o centro do objeto
    	 *     	geométrico.
+   	 * @throws Exception 
    	 */
-   	Ponto centro();
+   	Ponto centro() throws Exception;
  
    	/**
    	 * O método calculaÁrea calcula a área do objeto geométrico e retorna a área
