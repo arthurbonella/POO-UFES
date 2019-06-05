@@ -26,12 +26,11 @@ public class Uso {
 		String nomes = scanner.nextLine();
 		String[] vetorNome = nomes.split(" ");
 		
-		//TreeMap Insere Ordenado
+		
 		Set<String> palavraOrd = new TreeSet<String>();
 		Map<String,Integer> freqPalavra = new HashMap<String,Integer>();
 		List<String> txtDesord = new LinkedList<String>();
 		Set<Integer> numOrd = new TreeSet<Integer>();
-		//TreeMap Insere Ordenando
 		Map<String,Integer> nomesOrd = new TreeMap<String,Integer>();
 		
 		
