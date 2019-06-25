@@ -2,52 +2,32 @@ package Tempo;
 
 public class Data {
 
-	//CAMPOS DO OBJETO
 
 	private int dia,mes,ano;
 
 
-	//CONSTRUTORES 
-
-	//Data contendo somente o mês e ano
 	public Data (int _mes,int _ano) throws Exception{this.setData (1,_mes,_ano);}
 
-	//Data completa  no formato String “dd/mm/aaaa”.
 	public Data (String _date) throws Exception{this.setData(_date);}
 
-	//Data completa no formado int-string-int
 	public Data (int _dia,String _mes,int _ano) throws Exception{this.setData(_dia, _mes, _ano);}
 
-	//Data vazia
 	public Data () throws Exception {this.setData (1,1,1900);}
 
-	//Data normal
 	public Data (int dia,int mes, int ano) throws Exception {this.setData (dia,mes,ano);}
 
-
-	//SETS
 
 	public void setDia(int dia) {this.dia = dia;}
 	public void setMes(int mes) {this.mes = mes;}
 	public void setAno(int ano) {this.ano = ano;}
 
 
-	//GETS
 
 	public int getDia(){return dia;}
 	public int getMes(){return mes;}
 	public int getAno(){return ano;}
 
 
-	//METODOS
-
-	//==================================================================================================================================================
-	/*
-	Metodo isBissexto entra com um ano e verifica se o mesmo é bissexto ou nao 
-	Entrada:(int)|Ano|
-	Saida:(boolean)|False->Nao bissexto|True->Bissexto|
-	 */
-	//==================================================================================================================================================
 	public static boolean isBissexto(int _ano) {
 
 		if (((_ano%4==0) && (_ano%100 != 0)) || ((_ano%400) == 0)) {
@@ -58,14 +38,6 @@ public class Data {
 		}
 
 	}
-
-	//==================================================================================================================================================
-	/*
-	Metodo isDataValida entra com uma data,verifica se é bissexto com isBissexto e retorna se é valida ou nao
-	Entrada:(int,int,int)|Dia|Mes|Ano|
-	Saida:(boolean)|False->Invalido|True->Valido|
-	 */
-	//==================================================================================================================================================
 
 	public static boolean isDataValida(int _dia,int _mes,int _ano) {
 
@@ -115,11 +87,7 @@ public class Data {
 		return false;
 	}
 
-	/*
-	Metodos setData entra com uma data,verifica se a data é valida com isDataValida e retorna se é valida ou nao
-	Entrada:(int,int,int)|Dia|Mes|Ano|
-	Saida:(boolean)|False->Invalido|True->Valido|
-	 */
+
 
 	public void setData (int _dia,int _mes,int _ano) throws Exception {
 
@@ -139,7 +107,7 @@ public class Data {
 		}
 	}
 
-	//Vai ser sobrecarregado para o mes como string
+	
 	public void setData (int _dia,String _mes,int _ano) throws Exception {
 
 		int mes = 0;//0 Dará data invalida
@@ -158,13 +126,13 @@ public class Data {
 		if(_mes.compareToIgnoreCase( "dezembro" ) == 0) mes = 12;
 
 
-		//Descobre o mes e atribui na variavel mes
+
 
 		this.setData(_dia,mes,_ano);
 
 	}
 
-	//
+	
 	public void setData (String data) throws Exception {
 
 		int dia,mes,ano;
@@ -176,7 +144,7 @@ public class Data {
 		this.setData(dia,mes,ano);
 	}
 
-	//Incrementa
+
 	public void incrementa()throws Exception{
 
 		try {
@@ -194,7 +162,7 @@ public class Data {
 	}
 
 
-	//Incrementa SOBRECARREGADO
+	
 	public void incrementa(int incremento)throws Exception{
 
 		int i;
@@ -206,7 +174,7 @@ public class Data {
 	}
 
 
-	//Equals
+	
 	public boolean equals(Data objeto) {
 		Data aux = objeto;
 		if (this.getDia()== aux.getDia() &&
@@ -215,7 +183,7 @@ public class Data {
 			return true;
 		return false;
 	}
-	//verificaECriaData
+	
 	public static Data verificaECriaData (int dia,int mes,int ano) {
 
 		try {
@@ -227,7 +195,7 @@ public class Data {
 	}
 
 
-	//CompareTo
+	
 
 	public int compareTo(Data objeto) {
 
@@ -274,22 +242,17 @@ public class Data {
 	}
 
 
-	/*Metodo to string para melhor representar na tela, a classe Data*/	
-
+	
 	public String toString(){
 		StringBuilder dataStr = new StringBuilder();
-		
+
 		dataStr.append(this.getDia());
 		dataStr.append("/");
 		dataStr.append(this.getMes());
 		dataStr.append("/");
 		dataStr.append(this.getAno());
-		
+
 		return dataStr.toString();
 	}
 }
 
-/*
- Seria útil uma versão sobrecarregada do isDataValida e do isAnoBissexto ambos sem argumentos?  Lembre-se que, neste caso, a data a ser verificada seria o próprio objeto que fez a chamada do método.
-Não, pois para criarmos o objeto a data já deve ser valida.Ou seja,teriamos que averiguar se é válida antes mesmo de denominarmos os campos do objeto.
- */

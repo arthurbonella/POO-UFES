@@ -88,9 +88,9 @@ public class Periodo {
 		}
 	}
 	public String toString() {
-		
+
 		StringBuilder str = new StringBuilder();
-		
+
 		str.append("Data de Início: ");
 		str.append(this.getDataInicio());
 		str.append("\nHora de Início: ");
@@ -99,9 +99,9 @@ public class Periodo {
 		str.append(this.getDataFim());
 		str.append("\nHora de Fim: ");
 		str.append(this.getHoraFim());
-		
+
 		return str.toString();		
-		
+
 	}
 
 

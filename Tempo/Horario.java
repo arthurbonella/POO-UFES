@@ -19,7 +19,7 @@ public class Horario {
 	public void setMinutos(int _minutos) {
 		this.minutos = _minutos;
 	}
-	
+
 	public int getHoras() {
 		return this.horas;
 	}
@@ -41,7 +41,7 @@ public class Horario {
 	public int compareTo(Horario objeto) {
 
 		if (this.getHoras() == objeto.getHoras()) {
-			
+
 			if (this.getMinutos() == objeto.getMinutos()) {
 				return 0;
 			}
