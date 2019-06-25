@@ -8,6 +8,8 @@ import java.io.FileWriter;
 
 import java.io.IOException;
 
+import Exercício_02.Data;
+
 
 
 /**
@@ -62,6 +64,7 @@ public class Uso {
 			ConjuntoSorteio testeCompleto = new ConjuntoSorteio();
 
 			testeCompleto.insere(31,10,1997,10,10,50,6);
+			testeCompleto.insere(new Data(25,10,1998),2,10,50,6);
 
 			System.out.println(testeCompleto);
 
