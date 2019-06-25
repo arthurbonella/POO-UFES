@@ -3,6 +3,7 @@ package Organizador;
 import Tempo.*;
 
 public class Evento extends ItemAgenda implements Comparable<Evento> {
+	
 	private String local;
 	
 	public Evento(String _registro_item, String _descricao, Periodo _periodo, String _local) {

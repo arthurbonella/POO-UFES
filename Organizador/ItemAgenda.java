@@ -47,17 +47,16 @@ abstract public class ItemAgenda {
 		this.setDescricao(_descricao);
 		this.setTitulo(_titulo);
 	}
+
 	
-	abstract public String toString();
-	/*public String toString() {
-		StringBuilder info = new StringBuilder();
-		info.append("\nRegistro do Item: " + this.getRegistroItem());
-		info.append("\nDescricao: " + this.getDescricao());
-		info.append("\nPeriodo: " + this.getPeriodo());
-		return info.toString();
-	}*/
-	abstract public int compareTo(Meta objeto);
-	abstract public boolean equals(Meta objeto);
-	
-	
+	public String toString() {
+		
+		StringBuilder str = new StringBuilder();
+		
+		str.append("\nTitulo: " + this.getTitulo());
+		str.append("\nDescricao: " + this.getDescricao());
+		str.append("\n" + this.getDuracao());
+		
+		return str.toString();
+	}
 }

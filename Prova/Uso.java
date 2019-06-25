@@ -19,9 +19,9 @@ public class Uso {
 
 	public static void main(String[] args) {
 		Agenda itens_da_agenda = new Agenda();
-		int escolha = 1, dia_in, mes_in, ano_in, dia_fim, mes_fim, ano_fim, hr_in,min_in,seg_in, hr_fim,min_fim,seg_fim;
+		int escolha = 1, dia_in, mes_in, ano_in, dia_fim, mes_fim, ano_fim, hr_in,min_in, hr_fim,min_fim;
 		int prioridade, min_antecedencia, ver = 0;
-		String registro, descricao, local;
+		String titulo, descricao, local;
 		Data data_inicio, data_fim;
 		Horario horario_inicio,horario_fim;
 		Periodo periodo = null;
@@ -30,17 +30,16 @@ public class Uso {
 		Lembrete lembrete = null;
 		
 		
-		System.out.println("-------------AGENDA-------------");
 		while (escolha != 0) {
-			System.out.println("1 - Adicionar um evento\n2 - Adicionar uma meta\n3 - Adicionar um lembrete\n"
+			System.out.println("==================MENU==================\n1 - Adicionar um evento\n2 - Adicionar uma meta\n3 - Adicionar um lembrete\n"
 					+ "4 - Exibir todos os itens da agenda\n5 - Exibir todos os itens em um intervalo de data\n"
 					+ "6 - Exibir as metas em ordem de prioridade\n7 - Exibir lembretes por minutos de antecedencia\n"
 					+ "8 - Exibir eventos por ordem de local\n9 - Salvar agenda em disco\n10 - Recuperar agenda do disco\n"
 					+ "0 - Sair: ");
 			escolha = new Scanner(System.in).nextInt();
 			if (escolha == 1) {
-				System.out.println("Entre com o nome do registro do evento: ");
-				registro = new Scanner(System.in).next();
+				System.out.println("Entre com o titulo do evento: ");
+				titulo = new Scanner(System.in).next();
 				System.out.println("Entre com a descricao do evento: ");
 				descricao = new Scanner(System.in).next();
 				System.out.println("Entre com o local do evento: ");
@@ -95,8 +94,7 @@ public class Uso {
 						hr_in = new Scanner(System.in).nextInt();
 						System.out.println("Minutos: ");
 						min_in = new Scanner(System.in).nextInt();
-						System.out.println("Segundos: ");
-						seg_in = new Scanner(System.in).nextInt();
+			
 						try {
 							horario_inicio = new Horario(hr_in,min_in);
 							break;
@@ -110,8 +108,7 @@ public class Uso {
 						hr_fim = new Scanner(System.in).nextInt();
 						System.out.println("Minutos: ");
 						min_fim = new Scanner(System.in).nextInt();
-						System.out.println("Segundos: ");
-						seg_fim = new Scanner(System.in).nextInt();
+					
 						try {
 							horario_fim = new Horario(hr_fim,min_fim);
 							break;
@@ -128,13 +125,13 @@ public class Uso {
 				}
 				
 				periodo = new Periodo(data_inicio,data_fim,horario_inicio,horario_fim);
-				evento = new Evento(registro, descricao, periodo, local);
+				evento = new Evento(titulo, descricao, periodo, local);
 				itens_da_agenda.insereItem(evento);
 				System.out.println("Evento adicionado com sucesso!!\n");
 			}
 			else if (escolha == 2) {
-				System.out.println("Entre com o nome do registro da meta: ");
-				registro = new Scanner(System.in).next();
+				System.out.println("Entre com o nome do titulo da meta: ");
+				titulo = new Scanner(System.in).next();
 				System.out.println("Entre com a descricao da meta: ");
 				descricao = new Scanner(System.in).next();
 				while (true) {
@@ -187,8 +184,7 @@ public class Uso {
 						hr_in = new Scanner(System.in).nextInt();
 						System.out.println("Minutos: ");
 						min_in = new Scanner(System.in).nextInt();
-						System.out.println("Segundos: ");
-						seg_in = new Scanner(System.in).nextInt();
+				
 						try {
 							horario_inicio = new Horario(hr_in,min_in);
 							break;
@@ -202,8 +198,7 @@ public class Uso {
 						hr_fim = new Scanner(System.in).nextInt();
 						System.out.println("Minutos: ");
 						min_fim = new Scanner(System.in).nextInt();
-						System.out.println("Segundos: ");
-						seg_fim = new Scanner(System.in).nextInt();
+						
 						try {
 							horario_fim = new Horario(hr_fim,min_fim);
 							break;
@@ -224,7 +219,7 @@ public class Uso {
 					System.out.println("Entre com a prioridade da meta: ");
 					prioridade = new Scanner(System.in).nextInt();
 					try {
-						meta = new Meta(registro, descricao, periodo, prioridade);
+						meta = new Meta(titulo, descricao, periodo, prioridade);
 						break;
 					} catch (Exception e) {
 						System.out.println("Valor invalido!!");
@@ -235,8 +230,8 @@ public class Uso {
 			}
 			else if (escolha == 3) {
 				ver = 0;
-				System.out.println("Entre com o nome do registro do lembrete: ");
-				registro = new Scanner(System.in).next();
+				System.out.println("Entre com o nome do titulo do lembrete: ");
+				titulo = new Scanner(System.in).next();
 				System.out.println("Entre com a descricao do lembrete: ");
 				descricao = new Scanner(System.in).next();
 				
@@ -290,8 +285,7 @@ public class Uso {
 						hr_in = new Scanner(System.in).nextInt();
 						System.out.println("Minutos: ");
 						min_in = new Scanner(System.in).nextInt();
-						System.out.println("Segundos: ");
-						seg_in = new Scanner(System.in).nextInt();
+						
 						try {
 							horario_inicio = new Horario(hr_in,min_in);
 							break;
@@ -305,8 +299,7 @@ public class Uso {
 						hr_fim = new Scanner(System.in).nextInt();
 						System.out.println("Minutos: ");
 						min_fim = new Scanner(System.in).nextInt();
-						System.out.println("Segundos: ");
-						seg_fim = new Scanner(System.in).nextInt();
+						
 						try {
 							horario_fim = new Horario(hr_fim,min_fim);
 							break;
@@ -329,7 +322,7 @@ public class Uso {
 					System.out.println("Entre com a quantidade de minutos de antecedencia para o alerta: ");
 					min_antecedencia = new Scanner(System.in).nextInt();
 					try {
-						lembrete = new Lembrete(registro, descricao, periodo, min_antecedencia);
+						lembrete = new Lembrete(titulo, descricao, periodo, min_antecedencia);
 						break;
 					} catch (Exception e) {
 						System.out.println("Valor invalido!!");
@@ -373,7 +366,7 @@ public class Uso {
 							System.out.println("Data invalida!!");
 						}
 					}
-					if (Data.compareTo(data_inicio, data_fim) == 1) {
+					if (data_inicio.compareTo(data_fim) == 1) {
 						System.out.println("A data inicial deve vim antes da final!!");
 					}
 					else {
@@ -412,8 +405,9 @@ public class Uso {
 			}
 			else if (escolha == 10) {
 				try {
+					System.out.println("=================AGENDA=================");
 					BufferedReader arqEnt;
-					arqEnt = new BufferedReader(new FileReader("C:\\Users\\dioge\\eclipse-workspace\\PROVA_2\\arquivo_de_saida.txt"));
+					arqEnt = new BufferedReader(new FileReader("C:\\Users\\arthu\\Google Drive\\UFES\\Matéria\\POO\\Exercícios\\arquivo_de_saida.txt"));
 					int i;    
 			          while((i=arqEnt.read())!=-1)    
 			          System.out.print((char)i);    
