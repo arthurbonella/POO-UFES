@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Encapsula as classes LinkedList facilitando o seu uso e tipificando os objetos para
  * inclusão como instâncias da classes extendidas de ItemAgenda
- 
+
  * @author Arthur Bonella
  * @version 1.0 (junho-2019)
-*/
+ */
 public class Agenda {
 
 	private List<ItemAgenda> itens_agenda;
@@ -87,9 +87,8 @@ public class Agenda {
 		int i;
 		List<Evento> eventos_ordenados = new LinkedList<Evento>();
 		for (i = 0; i < this.itens_agenda.size();i++) {
-			eventos_ordenados.add((Evento) this.itens_agenda.get(i));
+				eventos_ordenados.add((Evento) this.itens_agenda.get(i));
 		}
-		Collections.sort(eventos_ordenados);
 		return eventos_ordenados;
 	}
 	/**

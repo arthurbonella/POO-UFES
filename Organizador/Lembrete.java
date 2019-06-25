@@ -14,12 +14,12 @@ public class Lembrete extends ItemAgenda implements Comparable<Lembrete> {
 	/** Inteiro que representa os minutos de antecedencia */
 	public int minAntecedencia;
 	/**
-	*@param _titulo titulo do item
-	*@param _descricao descricao do item
-	*@param _periodo periodo que ocorrera o item
-	*@param _minAntecedencia minutos de antecedencia
-	*@throws Exception tratamento para minAntecedencia negativos ou zero
-	*/
+	 *@param _titulo titulo do item
+	 *@param _descricao descricao do item
+	 *@param _periodo periodo que ocorrera o item
+	 *@param _minAntecedencia minutos de antecedencia
+	 *@throws Exception tratamento para minAntecedencia negativos ou zero
+	 */
 	public Lembrete(String _titulo, String _descricao, Periodo _periodo, int _minAntecedencia) throws Exception {
 		super(_titulo, _descricao, _periodo);
 		this.setMinAntecedencia(_minAntecedencia);

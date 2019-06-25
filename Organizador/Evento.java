@@ -11,10 +11,10 @@ import Tempo.*;
  *  <p>
  * @author Arthur Bonella
  * @version 1.0 (junho-2019)
-*/
+ */
 
 public class Evento extends ItemAgenda implements Comparable<Evento> {
-	
+
 	/** String sobre o local do evento */
 	private String local;
 	/**

@@ -7,7 +7,7 @@ import Tempo.*;
  * 
  * @author Arthur Bonella
  * @version 1.0 (junho-2019)
-*/
+ */
 
 abstract public class ItemAgenda {
 	/** Titulo e descrição */

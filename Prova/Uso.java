@@ -409,7 +409,7 @@ public class Uso {
 			else if (escolha == 9) {
 				try {
 					BufferedWriter arqSaida;
-					arqSaida = new BufferedWriter(new FileWriter("arquivo_de_saida.txt"));  
+					arqSaida = new BufferedWriter(new FileWriter("Agenda.txt"));  
 					arqSaida.write(itens_agenda.toString()+"\r\n");
 					arqSaida.close();
 
@@ -427,7 +427,7 @@ public class Uso {
 				try {
 					System.out.println("=================AGENDA=================");
 					BufferedReader arqEnt;
-					arqEnt = new BufferedReader(new FileReader("C:\\Users\\arthu\\Google Drive\\UFES\\Matéria\\POO\\Exercícios\\arquivo_de_saida.txt"));
+					arqEnt = new BufferedReader(new FileReader("C:\\Users\\arthu\\Google Drive\\UFES\\Matéria\\POO\\Exercícios\\.txt"));
 					int i;    
 					while((i=arqEnt.read())!=-1)    
 						System.out.print((char)i);    
@@ -447,7 +447,7 @@ public class Uso {
 				break;
 			}
 			else {
-				System.out.println("Opcao invalida!!\n");
+				System.out.println("Opcao Invalida\n");
 			}
 		}
 	}

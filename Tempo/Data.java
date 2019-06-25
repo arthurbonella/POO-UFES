@@ -1,32 +1,73 @@
 package Tempo;
 
+/**
+ *Classe Data que tem como campos caracterizados po representarem uma data com dia,mes e ano
+ *
+ * @author Arthur Bonella
+ * @version 1.0 (junho-2019)
+ */
+
 public class Data {
 
-
+	/**Dia mes e ano*/
 	private int dia,mes,ano;
 
-
+	/**Construtor só com mes e ano
+	 * @param _mes representa mes
+	 * @param _ano representa ano*/
 	public Data (int _mes,int _ano) throws Exception{this.setData (1,_mes,_ano);}
-
+	/**Construtor só com string
+	 * @param _date representa a data*/
 	public Data (String _date) throws Exception{this.setData(_date);}
-
+	/**Construtor só com mes em forma de strin e dia e ano em forma de int
+	 * @param _dia representa dia
+	 * @param _mes representa mes
+	 * @param _ano representa ano
+	 * */
 	public Data (int _dia,String _mes,int _ano) throws Exception{this.setData(_dia, _mes, _ano);}
-
+	/**Construtor vazio
+	 *Constroi objeto com valores padrões 1,1,1900	 * 
+	 **/
 	public Data () throws Exception {this.setData (1,1,1900);}
-
+	/**Construtor padrão
+	 * @param dia representa dia
+	 * @param mes representa mes
+	 * @param ano representa ano
+	 * */
 	public Data (int dia,int mes, int ano) throws Exception {this.setData (dia,mes,ano);}
 
-
+	/**
+	 * Modifica o valor de dia
+	 * @param dia*/
 	public void setDia(int dia) {this.dia = dia;}
+	/**
+	 * Modifica o valor de mes
+	 * @param dia*/
 	public void setMes(int mes) {this.mes = mes;}
+	/**
+	 * Modifica o valor de ano
+	 * @param ano*/
 	public void setAno(int ano) {this.ano = ano;}
 
 
 
+	/**
+	 * Pega o valor do dia
+	 * @return dia*/
 	public int getDia(){return dia;}
+	/**
+	 * Pega o valor do mes
+	 * @return mes*/
 	public int getMes(){return mes;}
+	/**
+	 * Pega o valor do ano
+	 * @return ano*/
 	public int getAno(){return ano;}
 
+	/**Confere se o ano é bissextop
+	 * @param _ano representa ano
+	 * @return bool true se for bissexto e false se for bissexto
+	 * */
 
 	public static boolean isBissexto(int _ano) {
 
@@ -38,7 +79,12 @@ public class Data {
 		}
 
 	}
-
+	/**Confere se a data é valida, a partir de dia,mes e ano
+	 * @param dia representa dia
+	 * @param mes representa mes
+	 * @param ano representa ano
+	 * @return bool true se for valido e false se for invalido
+	 * */
 	public static boolean isDataValida(int _dia,int _mes,int _ano) {
 
 		//Confere se é bissexto
@@ -86,9 +132,14 @@ public class Data {
 		}
 		return false;
 	}
-
-
-
+	/**
+	 * 
+	 * Metodo que recebe 3 parametros int, que representa dia,mes,ano
+	 * @param mes String representa o mes
+	 * @param dia representa o dia
+	 * @param ano representa o ano	
+	 * @throws Exception Tratamento de erro para verificar se a data é valida
+	 */
 	public void setData (int _dia,int _mes,int _ano) throws Exception {
 
 		boolean validade = Data.isDataValida(_dia,_mes,_ano);
@@ -107,7 +158,14 @@ public class Data {
 		}
 	}
 
-	
+	/**
+	 * 
+	 * Metodo que recebe uma string para o mes, ao inves de int compara com a base, transforma em int e "seta"
+	 * @param mes String representa o mes
+	 * @param dia representa o dia
+	 * @param ano representa o ano	
+	 * @throws Exception Tratamento de erro para verificar se a data é valida
+	 */
 	public void setData (int _dia,String _mes,int _ano) throws Exception {
 
 		int mes = 0;//0 Dará data invalida
@@ -131,8 +189,13 @@ public class Data {
 		this.setData(_dia,mes,_ano);
 
 	}
+	/**
+	 * 
+	 * Metodo que recebe uma string, localiza os dados de dia, mes e ano, e transoforma em int
+	 * @param data String que representa a data
+	 * @throws Exception Tratamento de erro para verificar se a data é valida
+	 */
 
-	
 	public void setData (String data) throws Exception {
 
 		int dia,mes,ano;
@@ -143,7 +206,10 @@ public class Data {
 
 		this.setData(dia,mes,ano);
 	}
-
+	/**
+	 * Metodo que incrementa um dia na data desejada
+	 * 
+	 * */
 
 	public void incrementa()throws Exception{
 
@@ -161,8 +227,10 @@ public class Data {
 		}
 	}
 
+	/**Metodo sobrecarregado de incrementa que incrementa "n" vezes, de acordo com a entrada
+	 * @param incremento - numero de incrementos
+	 * */
 
-	
 	public void incrementa(int incremento)throws Exception{
 
 		int i;
@@ -172,9 +240,11 @@ public class Data {
 			this.incrementa();
 		}
 	}
-
-
-	
+	/**
+	 * Método que vai comparar duas datas
+	 * @param objeto objeto a ser comparado
+	 * @return boolean, true para se for igual false para se for diferente
+	 */	
 	public boolean equals(Data objeto) {
 		Data aux = objeto;
 		if (this.getDia()== aux.getDia() &&
@@ -183,7 +253,14 @@ public class Data {
 			return true;
 		return false;
 	}
-	
+	/**
+	 * Metodo que verifica as entradas e ve se pé possivel criar o objeto "data"
+	 * @param dia representa dia
+	 * @param mes representa mes
+	 * @param ano representa ano
+	 * 
+	 * @return data
+	 * */
 	public static Data verificaECriaData (int dia,int mes,int ano) {
 
 		try {
@@ -194,9 +271,11 @@ public class Data {
 		}
 	}
 
-
-	
-
+	/**
+	 * Método que vai comparar duas datas
+	 * @param objeto objeto a ser comparado
+	 * @return -1,0,1 Se a primeira data for menor,igual ou maior que a segunda,respectivamente
+	 */
 	public int compareTo(Data objeto) {
 
 		if(this.ano == objeto.ano){
@@ -241,8 +320,11 @@ public class Data {
 		}
 	}
 
+	/**
+	 * Método toString para informar todas as informações do objeto
+	 * @return String com todos os dados
+	 */
 
-	
 	public String toString(){
 		StringBuilder dataStr = new StringBuilder();
 
